@@ -70,7 +70,7 @@ class DailyQuestionListTestCase(TestCase):
     REQUEST = RequestFactory().get(path='/q/2030-12-31')
     today = date.today()
 
-    def test_GET_on_day_with_no_questions(self):
+    def test_get_on_day_with_no_questions(self):
         response = DailyQuestionList.as_view()(
             self.REQUEST,
             year=self.today.year,
@@ -78,14 +78,11 @@ class DailyQuestionListTestCase(TestCase):
             day=self.today.day
         )
         self.assertEqual(200, response.status_code)
-        self.assertEqual(['qanda/question_archive_day.html'],
-                         response.template_name)
+        self.assertEqual(['qanda/question_archive_day.html'], response.template_name)
         self.assertEqual(0, response.context_data['object_list'].count())
-        self.assertContains(response,
-                            'Hmm... Everyone thinks they know everything '
-                            'today.')
+        self.assertContains(response, 'No news today.')
 
-    def test_GET_on_day_with_many_questions(self):
+    def test_get_on_day_with_many_questions(self):
         todays_questions = [QuestionFactory() for _ in range(10)]
 
         response = DailyQuestionList.as_view()(

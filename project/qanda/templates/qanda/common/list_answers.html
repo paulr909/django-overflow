@@ -11,7 +11,7 @@
                             <span class="badge badge-pill badge-success">Accepted</span>
                         {% endif %}
                         {% if answer.accepted and reject_form %}
-                            <form method="post" action="{% url "qanda:update_answer_acceptance" pk=answer.id %}"
+                            <form method="POST" action="{% url "qanda:update_answer_acceptance" pk=answer.id %}"
                                   novalidate>
                                 {% csrf_token %}
                                 {{ reject_form }}
@@ -21,7 +21,7 @@
                                 </button>
                             </form>
                         {% elif accept_form %}
-                            <form method="post" action="{% url "qanda:update_answer_acceptance" pk=answer.id %}"
+                            <form method="POST" action="{% url "qanda:update_answer_acceptance" pk=answer.id %}"
                                   novalidate>
                                 {% csrf_token %}
                                 {{ accept_form }}
