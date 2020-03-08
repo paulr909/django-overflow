@@ -1,8 +1,8 @@
 {% load markdownify %}
 
 <div class="row">
-    <div class="col-md-12">
-        <h3>Answers</h3>
+    <div class="col-md-8 offset-md-2">
+        <h3 class="mt-3">Answers</h3>
         <ul class="list-unstyled answers">
             {% for answer in question.answer_set.all %}
                 <li class="answer row">
@@ -11,7 +11,8 @@
                             <span class="badge badge-pill badge-success">Accepted</span>
                         {% endif %}
                         {% if answer.accepted and reject_form %}
-                            <form method="POST" action="{% url "qanda:update_answer_acceptance" pk=answer.id %}"
+                            <form method="POST"
+                                  action="{% url "qanda:update_answer_acceptance" pk=answer.id %}"
                                   novalidate>
                                 {% csrf_token %}
                                 {{ reject_form }}
@@ -21,12 +22,15 @@
                                 </button>
                             </form>
                         {% elif accept_form %}
-                            <form method="POST" action="{% url "qanda:update_answer_acceptance" pk=answer.id %}"
+                            <form method="POST"
+                                  action="{% url "qanda:update_answer_acceptance" pk=answer.id %}"
                                   novalidate>
                                 {% csrf_token %}
                                 {{ accept_form }}
-                                <button type="submit" class="btn btn-link" title="Accept answer">
-                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                <button type="submit" class="btn btn-link"
+                                        title="Accept answer">
+                                    <i class="fa fa-check-circle"
+                                       aria-hidden="true"></i>
                                     Accept
                                 </button>
                             </form>

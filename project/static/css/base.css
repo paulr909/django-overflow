@@ -1,15 +1,19 @@
+.question {
+    padding: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
 .question-preview {
-    margin-bottom: 1em;
+    margin-bottom: 10px;
 }
 
 .question .meta {
-    border-bottom: lightgrey solid .01em;
-    margin-bottom: 2em;
-    padding-bottom: 1em;
+    margin-bottom: 20px;
 }
 
 .question .body {
-    padding-bottom: 1em;
+    margin-bottom: 20px;
 }
 
 pre {
@@ -18,7 +22,5 @@ pre {
 }
 
 .answer {
-    border-bottom: lightgrey dotted .01em;
-    margin-bottom: 1em;
-    padding-bottom: .5em;
+    margin-bottom: 10px;
 }

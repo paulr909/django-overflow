@@ -8,6 +8,7 @@
     {% if user.is_authenticated %}
         {% include "qanda/common/post_answer.html" %}
     {% else %}
-        <div>Login to post answers.</div>
+        <div class="col-md-8 offset-md-2"><p class="mt-5 text-center">Login to post
+            answers.</p></div>
     {% endif %}
 {% endblock %}
