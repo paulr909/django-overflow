@@ -1,16 +1,12 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import streaming_bulk
-
 from django.conf import settings
 
 import logging
 
 ALREADY_EXISTS_EXCEPTION = "resource_already_exists_exception"
-
 FAILED_TO_LOAD_ERROR = "Failed to load {}: {!r}"
-
 ISO_DATE_TIME_FORMAT = "%Y-%m-%dT%H:%M:%S.%fZ"
-
 logger = logging.getLogger(__name__)
 
 
