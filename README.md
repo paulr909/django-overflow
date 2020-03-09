@@ -1,9 +1,9 @@
 [![Python Version](https://img.shields.io/badge/python-3.6-brightgreen.svg)](https://python.org)
-[![Django Version](https://img.shields.io/badge/django-2.2.2-brightgreen.svg)](https://djangoproject.com)
+[![Django Version](https://img.shields.io/badge/django-3.0.4-brightgreen.svg)](https://djangoproject.com)
 
 # Django Overflow with Elasticsearch
 
-## Django 2.2.2(LTS)
+## Django 3.0.4
 
 Run your app in a Virtual Environment: http://python-guide-ru.readthedocs.io/en/latest/dev/virtualenvs.html
 
