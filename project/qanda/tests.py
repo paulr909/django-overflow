@@ -103,17 +103,21 @@ class DailyQuestionListTestCase(TestCase):
 
 class QuestionDetailViewTestCase(TestCase):
     QUESTION_DISPLAY_SNIPPET = """
-    <div class="question" >
-      <div class="meta col-sm-12" >
-        <h1 >{title}</h1 >
-        Asked by {user} on {date}
-      </div >
-      <div class="body col-sm-12" >
-        {body}
-      </div >
-    </div >"""
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="question">
+                <div>
+                    <h1>{title}</h1>
+                    <p class="badge badge-warning">Asked by {user} on {date}</p>
+                </div>
+                <div>
+                    {body}
+                </div>
+            </div>
+        </div>
+    </div>"""
     LOGIN_TO_POST_ANSWERS = "Login to post answers."
-    NO_ANSWERS_SNIPPET = '<li class="answer" >No answers yet!</li >'
+    NO_ANSWERS_SNIPPET = '<li class="answer">No answers yet!</li>'
 
     def test_anonymous_user_cannot_post_answers(self):
         question = QuestionFactory()
