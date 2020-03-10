@@ -42,7 +42,10 @@ class CreateAnswerView(LoginRequiredMixin, CreateView):
     template_name = "qanda/create_answer.html"
 
     def get_initial(self):
-        return {"question": self.get_question().id, "user": self.request.user.id}
+        return {
+            "question": self.get_question().id,
+            "user": self.request.user.id,
+        }
 
     def get_context_data(self, **kwargs):
         return super().get_context_data(question=self.get_question(), **kwargs)
@@ -82,13 +85,13 @@ class QuestionDetailView(DetailView):
         ctx.update(
             {
                 "answer_form": AnswerForm(
-                    initial={"user": self.request.user.id, "question": self.object.id}
+                    initial={"user": self.request.user.id, "question": self.object.id,}
                 )
             }
         )
         if self.object.can_accept_answers(self.request.user):
             ctx.update(
-                {"accept_form": self.ACCEPT_FORM, "reject_form": self.REJECT_FORM}
+                {"accept_form": self.ACCEPT_FORM, "reject_form": self.REJECT_FORM,}
             )
         return ctx
 
@@ -110,7 +113,7 @@ class TodaysQuestionList(RedirectView):
         today = timezone.now()
         return reverse(
             "questions:daily_questions",
-            kwargs={"day": today.day, "month": today.month, "year": today.year},
+            kwargs={"day": today.day, "month": today.month, "year": today.year,},
         )
 
 
