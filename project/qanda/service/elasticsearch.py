@@ -18,7 +18,7 @@ def bulk_load(questions):
     all_ok = True
     es_questions = (q.as_elasticsearch_dict() for q in questions)
     for ok, result in streaming_bulk(
-        get_client(), es_questions, index=settings.ES_INDEX, raise_on_error=False,
+        get_client(), es_questions, index=settings.ES_INDEX, raise_on_error=False
     ):
         if not ok:
             all_ok = False
@@ -30,7 +30,7 @@ def bulk_load(questions):
 def search_for_questions(query):
     client = get_client()
     result = client.search(
-        index=settings.ES_INDEX, body={"query": {"match": {"text": query,},},}
+        index=settings.ES_INDEX, body={"query": {"match": {"text": query}}}
     )
     return (h["_source"] for h in result["hits"]["hits"])
 
@@ -45,6 +45,6 @@ def upsert(question_model):
         settings.ES_INDEX,
         doc_type,
         id=question_model.id,
-        body={"doc": question_dict, "doc_as_upsert": True,},
+        body={"doc": question_dict, "doc_as_upsert": True},
     )
     return response

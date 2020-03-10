@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http.response import HttpResponseRedirect, HttpResponseBadRequest
 from django.urls.base import reverse
+from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import (
     CreateView,
@@ -22,6 +23,9 @@ class AskQuestionView(LoginRequiredMixin, CreateView):
 
     def get_initial(self):
         return {"user": self.request.user.id}
+
+    def get_success_url(self):
+        return reverse_lazy("qanda:index")
 
     def form_valid(self, form):
         action = self.request.POST.get("action")
@@ -85,13 +89,13 @@ class QuestionDetailView(DetailView):
         ctx.update(
             {
                 "answer_form": AnswerForm(
-                    initial={"user": self.request.user.id, "question": self.object.id,}
+                    initial={"user": self.request.user.id, "question": self.object.id}
                 )
             }
         )
         if self.object.can_accept_answers(self.request.user):
             ctx.update(
-                {"accept_form": self.ACCEPT_FORM, "reject_form": self.REJECT_FORM,}
+                {"accept_form": self.ACCEPT_FORM, "reject_form": self.REJECT_FORM}
             )
         return ctx
 
@@ -113,7 +117,7 @@ class TodaysQuestionList(RedirectView):
         today = timezone.now()
         return reverse(
             "questions:daily_questions",
-            kwargs={"day": today.day, "month": today.month, "year": today.year,},
+            kwargs={"day": today.day, "month": today.month, "year": today.year},
         )
 
 

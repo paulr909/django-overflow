@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.db import models
 from django.urls.base import reverse
-
 from qanda.service import elasticsearch
 
 
@@ -23,7 +22,8 @@ class Question(models.Model):
             using=using,
             update_fields=update_fields,
         )
-        elasticsearch.upsert(self)
+        # elasticsearch.upsert(self)
+        # TODO: fix above upsert method
 
     def get_absolute_url(self):
         return reverse("qanda:question_detail", kwargs={"pk": self.id})

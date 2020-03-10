@@ -28,7 +28,7 @@ docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.e
 Create Elasticsearch Index:
 
 ```bash
- curl -XPUT "localhost:9200/answerly?pretty"
+ curl -XPUT "localhost:9200/overflow?pretty"
 ```
 
 Load Questions into Elasticsearch:
