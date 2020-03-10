@@ -1,9 +1,14 @@
+pre {
+    background: #f8f9fa;
+    color: #bd4147;
+}
+
 .content {
-    min-height: calc(100vh - 294px);
+    min-height: calc(100vh - 304px);
 }
 
 .footer {
-    height: 150px;
+    height: 160px;
     background: #ffc107;
 }
 
@@ -23,11 +28,6 @@
 
 .question .body {
     margin-bottom: 20px;
-}
-
-pre {
-    background: #f8f9fa;
-    color: #bd4147;
 }
 
 .answer {
