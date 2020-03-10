@@ -34,5 +34,5 @@ Create Elasticsearch Index:
 Load Questions into Elasticsearch:
 
 ```bash
- python manage.py load_questions_into_elasticsearch
+ python manage.py load_questions
 ```

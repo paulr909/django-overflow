@@ -1,13 +1,10 @@
 from datetime import date
 from unittest.mock import patch
-
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.test import TestCase, RequestFactory
-
 from selenium.webdriver.chrome.webdriver import WebDriver
-
 from qanda.factories import QuestionFactory, DEFAULT_BODY_HTML
 from qanda.models import Question
 from qanda.views import DailyQuestionList
@@ -27,7 +24,7 @@ class QuestionSaveTestCase(TestCase):
             username="unittest", password="unittest",
         )
         question_title = "Unit test"
-        question_body = "some long text"
+        question_body = "some random text here for testing"
         q = Question(title=question_title, question=question_body, user=user,)
         q.save()
 
