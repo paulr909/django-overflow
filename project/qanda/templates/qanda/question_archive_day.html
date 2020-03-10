@@ -4,13 +4,14 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-12">
             <h1>Highest Voted Questions of {{ day }}</h1>
             <ul>
                 {% for question in object_list %}
                     <li>
                         {{ question.votes }}
-                        <a href="{{ question.get_absolute_url }}">{{ question }}</a> by {{ question.user }}
+                        <a href="{{ question.get_absolute_url }}">{{ question }}</a>
+                        by {{ question.user }}
                         on {{ question.created|date:"Y-m-d H:i" }}
                     </li>
                 {% empty %}

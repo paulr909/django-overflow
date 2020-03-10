@@ -1,3 +1,12 @@
+.content {
+    min-height: calc(100vh - 294px);
+}
+
+.footer {
+    height: 150px;
+    background: #ffc107;
+}
+
 .question {
     padding: 20px;
     border: 1px solid lightgrey;

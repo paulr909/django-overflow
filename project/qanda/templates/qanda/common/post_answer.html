@@ -1,13 +1,18 @@
 {% load crispy_forms_tags %}
 
 <div class="row">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-12">
         <h3 class="mt-3">Post your answer</h3>
-        <form method="POST" action="{% url "qanda:answer_question" pk=question.id %}" novalidate>
+        <form method="POST" action="{% url "qanda:answer_question" pk=question.id %}"
+              novalidate>
             {{ answer_form|crispy }}
             {% csrf_token %}
-            <button class="btn btn-outline-primary btn-sm" type="submit" name="action" value="PREVIEW">Preview</button>
-            <button class="btn btn-outline-primary btn-sm" type="submit" name="action" value="SAVE">Answer</button>
+            <button class="btn btn-outline-primary btn-sm" type="submit" name="action"
+                    value="PREVIEW">Preview
+            </button>
+            <button class="btn btn-outline-primary btn-sm" type="submit" name="action"
+                    value="SAVE">Answer
+            </button>
         </form>
     </div>
 </div>

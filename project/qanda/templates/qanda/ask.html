@@ -7,7 +7,7 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <h1>Ask a question</h1>
             {% if preview %}
                 <div class="card question-preview">
@@ -24,10 +24,12 @@
             <form method="POST" novalidate>
                 {{ form|crispy }}
                 {% csrf_token %}
-                <button class="btn btn-outline-primary btn-sm" id="preview" type="submit" name="action" value="PREVIEW">
+                <button class="btn btn-outline-primary btn-sm" id="preview"
+                        type="submit" name="action" value="PREVIEW">
                     Preview
                 </button>
-                <button class="btn btn-outline-primary btn-sm" id='ask' type="submit" name="action" value="SAVE">Ask!
+                <button class="btn btn-outline-primary btn-sm" id='ask' type="submit"
+                        name="action" value="SAVE">Ask!
                 </button>
             </form>
         </div>

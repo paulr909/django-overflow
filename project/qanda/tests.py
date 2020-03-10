@@ -104,7 +104,7 @@ class DailyQuestionListTestCase(TestCase):
 class QuestionDetailViewTestCase(TestCase):
     QUESTION_DISPLAY_SNIPPET = """
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <div class="question">
                 <div>
                     <h1>{title}</h1>

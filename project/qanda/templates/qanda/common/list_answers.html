@@ -1,7 +1,7 @@
 {% load markdownify %}
 
 <div class="row">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-12">
         <h2 class="mt-3">Answers</h2>
         <ul class="list-unstyled answers">
             {% for answer in question.answer_set.all %}
@@ -16,7 +16,8 @@
                                   novalidate>
                                 {% csrf_token %}
                                 {{ reject_form }}
-                                <button type="submit" class="btn btn-outline-danger btn-sm mt-3">
+                                <button type="submit"
+                                        class="btn btn-outline-danger btn-sm mt-3">
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                     Reject
                                 </button>
@@ -27,7 +28,8 @@
                                   novalidate>
                                 {% csrf_token %}
                                 {{ accept_form }}
-                                <button type="submit" class="btn btn-outline-success btn-sm"
+                                <button type="submit"
+                                        class="btn btn-outline-success btn-sm"
                                         title="Accept answer">
                                     <i class="fa fa-check-circle"
                                        aria-hidden="true"></i>
