@@ -8,7 +8,8 @@
                 <li class="answer row">
                     <div class="col-sm-3 col-md-2 text-center">
                         {% if answer.accepted %}
-                            <span class="badge badge-success">Accepted</span>
+                            <span class="badge badge-success">Accepted <span
+                                    class="badge badge-light">&#10003;</span></span>
                         {% endif %}
                         {% if answer.accepted and reject_form %}
                             <form method="POST"
