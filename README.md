@@ -9,30 +9,36 @@ Run your app in a Virtual Environment: http://python-guide-ru.readthedocs.io/en/
 
 Install the requirements:
 
-```bash
+```
 pip install -r requirements.txt
 ```
 
 Run the development server:
 
-```bash
+```
 python manage.py runserver
 ```
 
 Run Elasticsearch:
 
-```bash
+```
 docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" --name django-overflow_es docker.elastic.co/elasticsearch/elasticsearch:6.0.0
+```
+
+Check Elasticsearch is running:
+
+```
+curl -XGET http://localhost:9200
 ```
 
 Create Elasticsearch Index:
 
-```bash
+```
  curl -XPUT "localhost:9200/overflow?pretty"
 ```
 
 Load Questions into Elasticsearch:
 
-```bash
+```
  python manage.py load_questions
 ```
