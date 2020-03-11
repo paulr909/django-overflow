@@ -1,5 +1,4 @@
 from django.core.management import BaseCommand
-
 from qanda.service import elasticsearch
 from qanda.models import Question
 
@@ -19,6 +18,6 @@ class Command(BaseCommand):
         else:
             self.stdout.write(
                 self.style.WARNING(
-                    "Some questions not loaded " "successfully. See logged errors"
+                    "Some questions not loaded successfully. See logged errors"
                 )
             )
