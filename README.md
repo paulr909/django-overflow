@@ -42,3 +42,9 @@ Load Questions into Elasticsearch:
 ```
 python manage.py load_questions
 ```
+
+Run tests with coverage:
+
+```
+python manage.py test --with-coverage
+```

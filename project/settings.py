@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "qanda",
     "markdownify",
     "crispy_forms",
+    "django_nose",
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,10 @@ ES_HOST = "localhost"
 ES_PORT = "9200"
 
 CHROMEDRIVER = os.path.join(BASE_DIR, "../django-overflow/chromedriver")
+
+TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
+
+NOSE_ARGS = [
+    "--with-coverage",
+    "--cover-package=qanda,user",
+]
