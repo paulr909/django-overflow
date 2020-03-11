@@ -22,7 +22,7 @@ python manage.py runserver
 Run Elasticsearch:
 
 ```bash
-docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.0.0
+docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" --name django-overflow_es docker.elastic.co/elasticsearch/elasticsearch:6.0.0
 ```
 
 Create Elasticsearch Index:
