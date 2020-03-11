@@ -22,7 +22,7 @@ python manage.py runserver
 Run Elasticsearch:
 
 ```
-	docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" --name overflow_es docker.elastic.co/elasticsearch/elasticsearch:6.0.0
+docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" --name overflow_es docker.elastic.co/elasticsearch/elasticsearch:6.0.0
 ```
 
 Check Elasticsearch is running:
@@ -34,11 +34,11 @@ curl -XGET http://localhost:9200
 Create Elasticsearch Index:
 
 ```
- curl -XPUT "localhost:9200/overflow?pretty"
+curl -XPUT "localhost:9200/overflow?pretty"
 ```
 
 Load Questions into Elasticsearch:
 
 ```
- python manage.py load_questions
+python manage.py load_questions
 ```
