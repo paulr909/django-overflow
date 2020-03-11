@@ -39,7 +39,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "config.urls"
+ROOT_URLCONF = "project.urls"
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "config.wsgi.application"
+WSGI_APPLICATION = "project.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -137,4 +137,4 @@ ES_INDEX = "overflow"
 ES_HOST = "localhost"
 ES_PORT = "9200"
 
-CHROMEDRIVER = os.path.join(BASE_DIR, "../chromedriver")
+CHROMEDRIVER = os.path.join(BASE_DIR, "../django-overflow/chromedriver")

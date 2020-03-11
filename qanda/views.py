@@ -11,7 +11,6 @@ from django.views.generic import (
     UpdateView,
     TemplateView,
 )
-
 from qanda.service.elasticsearch import search_for_questions
 from qanda.forms import QuestionForm, AnswerForm, AnswerAcceptanceForm
 from qanda.models import Question, Answer

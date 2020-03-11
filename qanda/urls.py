@@ -1,5 +1,4 @@
 from django.urls.conf import path
-
 from qanda import views
 
 app_name = "qanda"

@@ -18,6 +18,6 @@ class Command(BaseCommand):
         else:
             self.stdout.write(
                 self.style.WARNING(
-                    "Some questions not loaded successfully. See logged errors"
+                    "Some questions did not loaded successfully. See logged errors"
                 )
             )

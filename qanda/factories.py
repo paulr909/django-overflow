@@ -1,8 +1,6 @@
 from unittest.mock import patch
-
 import factory
 from elasticsearch import Elasticsearch
-
 from qanda.models import Question
 from user.factories import UserFactory
 
