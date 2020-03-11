@@ -1,7 +1,6 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import streaming_bulk
 from django.conf import settings
-
 import logging
 
 ALREADY_EXISTS_EXCEPTION = "resource_already_exists_exception"
@@ -18,7 +17,7 @@ def bulk_load(questions):
     all_ok = True
     es_questions = (q.as_elasticsearch_dict() for q in questions)
     for ok, result in streaming_bulk(
-        get_client(), es_questions, index=settings.ES_INDEX, raise_on_error=False
+        get_client(), es_questions, index=settings.ES_INDEX, raise_on_error=False,
     ):
         if not ok:
             all_ok = False

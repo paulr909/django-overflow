@@ -22,8 +22,7 @@ class Question(models.Model):
             using=using,
             update_fields=update_fields,
         )
-        # elasticsearch.upsert(self)
-        # TODO: fix above upsert method
+        elasticsearch.upsert(self)
 
     def get_absolute_url(self):
         return reverse("qanda:question_detail", kwargs={"pk": self.id})
