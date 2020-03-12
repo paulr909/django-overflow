@@ -46,5 +46,5 @@ python manage.py load_questions
 Run tests with coverage:
 
 ```
-python manage.py test --with-coverage
+python manage.py test
 ```
