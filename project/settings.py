@@ -28,6 +28,9 @@ INSTALLED_APPS = [
     "markdownify",
     "crispy_forms",
     "django_nose",
+    "rest_framework",
+    "django_elasticsearch_dsl",
+    "django_elasticsearch_dsl_drf",
 ]
 
 MIDDLEWARE = [
@@ -134,11 +137,15 @@ MARKDOWNIFY_WHITELIST_TAGS = [
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
+CHROMEDRIVER = os.path.join(BASE_DIR, "../django-overflow/chromedriver")
+
 ES_INDEX = "overflow"
 ES_HOST = "localhost"
 ES_PORT = "9200"
 
-CHROMEDRIVER = os.path.join(BASE_DIR, "../django-overflow/chromedriver")
+ELASTICSEARCH_DSL = {
+    "default": {"hosts": "elasticsearch:9200"},
+}
 
 TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
 

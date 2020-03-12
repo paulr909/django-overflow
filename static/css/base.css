@@ -3,6 +3,10 @@ pre {
     color: #bd4147;
 }
 
+h1 {
+    font-size: 30px;
+}
+
 .content {
     min-height: calc(100vh - 304px);
 }
@@ -32,4 +36,8 @@ pre {
 
 .answer {
     margin-bottom: 10px;
+}
+
+.ufo {
+    height: 70%;
 }
