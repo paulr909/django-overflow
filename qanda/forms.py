@@ -1,18 +1,16 @@
 from django import forms
 from django.contrib.auth import get_user_model
-
 from qanda.models import Question, Answer
 
 
 class AnswerAcceptanceForm(forms.ModelForm):
-    accepted = forms.BooleanField(
-        widget=forms.HiddenInput,
-        required=False,
-    )
+    accepted = forms.BooleanField(widget=forms.HiddenInput, required=False,)
 
     class Meta:
         model = Answer
-        fields = ['accepted', ]
+        fields = [
+            "accepted",
+        ]
 
 
 class AnswerForm(forms.ModelForm):
@@ -22,14 +20,16 @@ class AnswerForm(forms.ModelForm):
         disabled=True,
     )
     question = forms.ModelChoiceField(
-        widget=forms.HiddenInput,
-        queryset=Question.objects.all(),
-        disabled=True,
+        widget=forms.HiddenInput, queryset=Question.objects.all(), disabled=True,
     )
 
     class Meta:
         model = Answer
-        fields = ['answer', 'user', 'question', ]
+        fields = [
+            "answer",
+            "user",
+            "question",
+        ]
 
 
 class QuestionForm(forms.ModelForm):
@@ -41,4 +41,8 @@ class QuestionForm(forms.ModelForm):
 
     class Meta:
         model = Question
-        fields = ['title', 'question', 'user', ]
+        fields = [
+            "title",
+            "question",
+            "user",
+        ]
