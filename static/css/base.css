@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 pre {
     background: #f8f9fa;
     color: #bd4147;
@@ -7,12 +13,8 @@ h1 {
     font-size: 30px;
 }
 
-.content {
-    min-height: calc(100vh - 304px);
-}
-
 .footer {
-    height: 160px;
+    flex: 1;
     background: #ffc107;
 }
 
