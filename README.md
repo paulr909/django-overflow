@@ -49,4 +49,4 @@ Run tests with coverage:
 python manage.py test
 ```
 
-Use elasticsearch==6.0.0 as v7 breaks the app
+Use elasticsearch==6.0.0 as v7 breaks (multiple id's created)
