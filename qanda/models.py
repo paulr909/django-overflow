@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.urls.base import reverse
+
 from qanda.service import elasticsearch
 
 

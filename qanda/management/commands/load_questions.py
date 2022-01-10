@@ -1,6 +1,7 @@
 from django.core.management import BaseCommand
-from qanda.service import elasticsearch
+
 from qanda.models import Question
+from qanda.service import elasticsearch
 
 
 class Command(BaseCommand):

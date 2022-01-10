@@ -1,18 +1,13 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http.response import HttpResponseRedirect, HttpResponseBadRequest
+from django.http.response import HttpResponseBadRequest, HttpResponseRedirect
 from django.urls.base import reverse
 from django.utils import timezone
-from django.views.generic import (
-    CreateView,
-    DayArchiveView,
-    DetailView,
-    RedirectView,
-    UpdateView,
-    TemplateView,
-)
+from django.views.generic import (CreateView, DayArchiveView, DetailView,
+                                  RedirectView, TemplateView, UpdateView)
+
+from qanda.forms import AnswerAcceptanceForm, AnswerForm, QuestionForm
+from qanda.models import Answer, Question
 from qanda.service.elasticsearch import search_for_questions
-from qanda.forms import QuestionForm, AnswerForm, AnswerAcceptanceForm
-from qanda.models import Question, Answer
 
 
 class AskQuestionView(LoginRequiredMixin, CreateView):

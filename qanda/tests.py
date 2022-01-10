@@ -1,11 +1,13 @@
 from datetime import date
 from unittest.mock import patch
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from django.test import TestCase, RequestFactory
+from django.test import RequestFactory, TestCase
 from selenium.webdriver.chrome.webdriver import WebDriver
-from qanda.factories import QuestionFactory, DEFAULT_BODY_HTML
+
+from qanda.factories import DEFAULT_BODY_HTML, QuestionFactory
 from qanda.models import Question
 from qanda.views import DailyQuestionList
 from user.factories import UserFactory

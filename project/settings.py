@@ -1,23 +1,16 @@
-import os
+from pathlib import Path
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
+SECRET_KEY = "SECRET_KEY"
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "DJANGO_SECRET_KEY"
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
 ]
-
-# Application definition
 
 INSTALLED_APPS = [
     "user",
@@ -30,6 +23,7 @@ INSTALLED_APPS = [
     "qanda",
     "markdownify",
     "crispy_forms",
+    "crispy_bootstrap5",
     "django_nose",
 ]
 
@@ -48,7 +42,7 @@ ROOT_URLCONF = "project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -62,36 +56,40 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "project.wsgi.application"
 
-# Database
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#     }
+# }
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "qandadb",
         "USER": "postgres",
-        "PASSWORD": "allN1ghtL0ng22",
+        "PASSWORD": "easy-password",
         "PORT": 5432,
         "HOST": "localhost",
     }
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
 ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/dev/topics/i18n/
-
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en-uk"
 
 TIME_ZONE = "UTC"
 
@@ -101,12 +99,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/dev/howto/static-files/
-
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    BASE_DIR / "static",
 ]
 
 LOGIN_URL = "user:login"
@@ -134,9 +129,11 @@ MARKDOWNIFY_WHITELIST_TAGS = [
     "ul",
 ]
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
-CHROMEDRIVER = os.path.join(BASE_DIR, "../django-overflow/chromedriver")
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+CHROMEDRIVER = BASE_DIR / "../django-overflow/chromedriver"
 
 ES_INDEX = "overflow"
 ES_HOST = "localhost"
@@ -148,3 +145,5 @@ NOSE_ARGS = [
     "--with-coverage",
     "--cover-package=qanda,user",
 ]
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
+
 import qanda.urls
 import user.urls
 

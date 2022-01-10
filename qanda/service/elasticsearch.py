@@ -1,7 +1,9 @@
-from elasticsearch import Elasticsearch
-from elasticsearch.helpers import streaming_bulk
-from django.conf import settings
 import logging
+
+from django.conf import settings
+from elasticsearch.helpers import streaming_bulk
+
+from elasticsearch import Elasticsearch
 
 ALREADY_EXISTS_EXCEPTION = "resource_already_exists_exception"
 FAILED_TO_LOAD_ERROR = "Failed to load {}: {!r}"

@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from qanda.models import Question, Answer
+
+from qanda.models import Answer, Question
 
 
 class AnswerAcceptanceForm(forms.ModelForm):
