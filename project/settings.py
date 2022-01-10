@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "qanda",
-    "markdownify",
+    "markdownify.apps.MarkdownifyConfig",
     "crispy_forms",
     "crispy_bootstrap5",
     "django_nose",
@@ -104,30 +104,34 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-LOGIN_URL = "user:login"
-LOGIN_REDIRECT_URL = "questions:index"
-LOGOUT_REDIRECT_URL = "questions:index"
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
-MARKDOWINFY_STRIP = False
-MARKDOWNIFY_WHITELIST_TAGS = [
-    "a",
-    "blockquote",
-    "code",
-    "em",
-    "h1",
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-    "h7",
-    "li",
-    "ol",
-    "p",
-    "pre",
-    "strong",
-    "ul",
-]
+MARKDOWNIFY = {
+    "default": {
+        "STRIP": False,
+        "WHITELIST_TAGS": [
+            "a",
+            "blockquote",
+            "code",
+            "em",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h7",
+            "li",
+            "ol",
+            "p",
+            "pre",
+            "strong",
+            "ul",
+        ],
+    }
+}
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
